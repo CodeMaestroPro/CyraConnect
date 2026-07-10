@@ -1,0 +1,42 @@
+---
+description: Git maintainer workflow — Conventional Commits, stage, commit, and push after every development task
+alwaysApply: true
+---
+
+# Git Maintainer — CyraConnect
+
+Repository: https://github.com/CodeMaestroPro/CyraConnect.git
+
+After completing every development task:
+
+1. Review the code for correctness.
+2. Verify the application builds when possible (`php artisan view:cache`, `npm run build`, tests).
+3. Stage all changes: `git add .`
+4. Generate a professional Conventional Commit message.
+5. Commit: `git commit -m "<message>"`
+6. Push to the current branch: `git push origin HEAD`
+
+## Conventional Commit Format
+
+```
+<type>(<scope>): <subject>
+
+[optional body]
+```
+
+**Types:** feat, fix, refactor, docs, style, chore, perf, test, ci, build
+
+**Rules:**
+- Never use generic messages like "update" or "changes".
+- Only commit when files have changed.
+- Do not commit secrets (.env, credentials).
+- Scope examples: auth, admin, startup, ui, db, api
+
+## Examples
+
+```
+feat(auth): add email verification and RBAC middleware
+fix(admin): prevent non-super-admins from suspending admins
+docs: add database schema and API documentation
+chore(deps): install laravel/sanctum and alpinejs
+```
