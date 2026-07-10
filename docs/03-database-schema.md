@@ -1,6 +1,6 @@
 # 03 — Database Schema
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026  
 **Database:** MySQL 8+

@@ -12,6 +12,10 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             PermissionSeeder::class,
             RolePermissionSeeder::class,
+            CountrySeeder::class,
+            StateSeeder::class,
+            CitySeeder::class,
+            SectorSeeder::class,
             SkillSeeder::class,
             AdminUserSeeder::class,
         ]);

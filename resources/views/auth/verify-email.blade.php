@@ -1,4 +1,4 @@
-<x-layouts.guest title="Verify Email — Cyra Nexus">
+<x-layouts.guest title="Verify Email — CyraConnect">
     <x-ui.card title="Verify your email">
         <p class="mb-4 text-sm text-slate-500">
             Thanks for signing up! Please verify your email address by clicking the link we sent to

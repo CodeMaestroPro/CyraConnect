@@ -1,0 +1,46 @@
+---
+description: Commit and push to GitHub automatically when a development module is completed
+alwaysApply: true
+---
+
+# Module Completion — Git Commit & Push
+
+When you **finish implementing a module** (or the user says "continue to next module" after a module is done), **always commit and push** before moving on — unless the user explicitly says not to.
+
+## When to run
+
+- After all deliverables for a module are implemented, migrated, and verified
+- Before starting the next module
+- When the user asks to commit/push module work
+
+## Commit message format
+
+Use conventional commits scoped to the module:
+
+```
+feat(organizations): implement Module 3 organizations base
+feat(startup): implement Module 4 startup portal
+feat(student): implement Module 5 student portal
+```
+
+Include a second line (body) summarizing the **why**, not every file changed.
+
+## Required steps
+
+1. Run in parallel: `git status`, `git diff`, `git log -3 --oneline`
+2. Stage all relevant changes — **never** stage `.env`, credentials, or secrets
+3. Commit with a clear module-scoped message
+4. Push: `git push -u origin HEAD`
+5. Confirm with `git status` that the branch is clean and up to date with remote
+6. Tell the user the commit hash and that the push succeeded
+
+## Multi-module backlog
+
+If several modules were completed without commits, create **one commit per module** when possible; otherwise one grouped commit with a clear summary, then push once.
+
+## Do not
+
+- Skip push after commit unless push fails (report the error)
+- Force-push to `main`/`master`
+- Amend commits already pushed to remote
+- Update git config

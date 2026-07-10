@@ -1,4 +1,4 @@
-<x-layouts.guest title="Forgot Password — Cyra Nexus">
+<x-layouts.guest title="Forgot Password — CyraConnect">
     <x-ui.card title="Reset your password">
         <p class="mb-6 text-sm text-slate-500">Enter your email and we'll send you a reset link.</p>
 

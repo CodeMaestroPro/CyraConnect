@@ -1,6 +1,6 @@
 # 05 — Wireframe Structure
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026
 
@@ -12,7 +12,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  [Logo] Cyra Nexus    Explore  Grants  Jobs  Events  Map   │
+│  [Logo] CyraConnect    Explore  Grants  Jobs  Events  Map   │
 │                                    [Login] [Register]       │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
@@ -67,7 +67,7 @@
 
 ```
 /                           Landing page
-/about                      About Cyra Nexus
+/about                      About CyraConnect
 /explore                    Explore ecosystem
 /explore/startups           Startup directory
 /explore/hubs               Tech hub directory

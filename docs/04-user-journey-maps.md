@@ -1,6 +1,6 @@
 # 04 — User Journey Maps
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026
 
@@ -14,7 +14,7 @@
 Awareness          Registration         Engagement           Outcome
     │                   │                    │                  │
     ▼                   ▼                    ▼                  ▼
-Find Cyra Nexus → Create Account → Build Profile → Get Hired/Internship
+Find CyraConnect → Create Account → Build Profile → Get Hired/Internship
 (via hub/social)   (select Student)  (skills, portfolio)  (job offer)
                         │                    │
                         ▼                    ▼

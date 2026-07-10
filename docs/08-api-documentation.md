@@ -1,6 +1,6 @@
 # 08 — API Documentation
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Base URL:** `/api/v1`  
 **Authentication:** Bearer Token (Laravel Sanctum)

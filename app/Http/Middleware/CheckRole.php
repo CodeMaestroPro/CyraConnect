@@ -12,6 +12,12 @@ class CheckRole
     {
         $user = $request->user();
 
+        $roles = collect($roles)
+            ->flatMap(fn (string $role) => explode(',', $role))
+            ->map(fn (string $role) => trim($role))
+            ->filter()
+            ->all();
+
         if (! $user || ! $user->hasAnyRole($roles)) {
             abort(403, 'Unauthorized action.');
         }

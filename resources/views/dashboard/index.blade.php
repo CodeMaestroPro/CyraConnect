@@ -13,6 +13,10 @@
             <p class="text-3xl font-bold text-cyra-600">{{ $user->isProfileComplete() ? '100' : '50' }}%</p>
             <p class="text-sm text-slate-500">Profile completion</p>
         </x-ui.card>
+        <x-ui.card title="Organizations">
+            <p class="text-3xl font-bold text-purple-600">{{ $user->organizations()->count() }}</p>
+            <a href="{{ route('organizations.mine') }}" class="mt-2 inline-block text-sm text-cyra-600 hover:underline">Manage →</a>
+        </x-ui.card>
         <x-ui.card title="Status">
             <x-ui.badge color="emerald">Active</x-ui.badge>
         </x-ui.card>

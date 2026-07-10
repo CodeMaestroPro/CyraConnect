@@ -1,11 +1,11 @@
-<x-layouts.guest title="Register — Cyra Nexus">
+<x-layouts.guest title="Register — CyraConnect">
     <div class="mx-auto max-w-md">
     <x-ui.card title="Create your account">
         <p class="mb-6 text-sm text-slate-500">Join Africa's innovation ecosystem</p>
 
         <form method="POST" action="{{ route('register') }}" class="space-y-4">
             @csrf
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <x-ui.input label="First name" name="first_name" required autofocus />
                 <x-ui.input label="Last name" name="last_name" required />
             </div>

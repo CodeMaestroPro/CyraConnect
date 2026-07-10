@@ -1,6 +1,6 @@
 # 13 — Deployment Strategy
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026
 
@@ -11,8 +11,8 @@
 | Environment | Purpose | URL |
 |-------------|---------|-----|
 | Local | Development | localhost |
-| Staging | QA, UAT | staging.cyranexus.com |
-| Production | Live platform | cyranexus.com |
+| Staging | QA, UAT | staging.cyraconnect.com |
+| Production | Live platform | cyraconnect.com |
 
 ---
 
@@ -115,15 +115,15 @@ Use Laravel Envoyer or Deployer with atomic releases:
 
 ### Production .env
 ```env
-APP_NAME="Cyra Nexus"
+APP_NAME="CyraConnect"
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=https://cyranexus.com
+APP_URL=https://cyraconnect.com
 
 DB_CONNECTION=mysql
 DB_HOST=db-primary.internal
 DB_PORT=3306
-DB_DATABASE=cyra_nexus
+DB_DATABASE=cyra_connect
 DB_USERNAME=cyra_app
 DB_PASSWORD=<secure>
 
@@ -135,13 +135,13 @@ REDIS_HOST=redis.internal
 REDIS_PASSWORD=<secure>
 
 FILESYSTEM_DISK=s3
-AWS_BUCKET=cyra-nexus-prod
+AWS_BUCKET=cyra-connect-prod
 
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.sendgrid.net
-MAIL_FROM_ADDRESS=noreply@cyranexus.com
+MAIL_FROM_ADDRESS=noreply@cyraconnect.com
 
-SANCTUM_STATEFUL_DOMAINS=cyranexus.com
+SANCTUM_STATEFUL_DOMAINS=cyraconnect.com
 ```
 
 ---
@@ -152,7 +152,7 @@ SANCTUM_STATEFUL_DOMAINS=cyranexus.com
 ```ini
 [program:cyra-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/cyra-nexus/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
+command=php /var/www/cyra-connect/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -226,8 +226,8 @@ Schedule::command('backup:run')->dailyAt('03:00');
 
 - SSL via Cloudflare (Full Strict)
 - DNS managed in Cloudflare
-- A record: cyranexus.com → Load Balancer IP
-- CNAME: www → cyranexus.com
+- A record: cyraconnect.com → Load Balancer IP
+- CNAME: www → cyraconnect.com
 - CNAME: staging → staging server
 
 ---
@@ -253,3 +253,50 @@ php artisan queue:restart && php artisan up
 ```
 
 Maximum rollback time target: 15 minutes.
+
+---
+
+## 12. Local XAMPP Setup (Windows)
+
+When serving CyraConnect from a subdirectory (e.g. `http://localhost/cyra-connect/public`), use these settings to avoid 404 errors on routes like `/login` and `/register`.
+
+### Required `.env` values
+
+```env
+APP_URL=http://localhost/cyra-connect/public
+```
+
+After changing `.env`, run:
+
+```bash
+php artisan config:clear
+npm run build
+```
+
+Remove `public/hot` when not running `npm run dev`, so Apache serves compiled assets from `public/build/`.
+
+### Apache rewrite base
+
+Update `public/.htaccess` `RewriteBase` to match your folder name in the URL:
+
+```apache
+RewriteBase /cyra-connect/public/
+```
+
+If the project folder is renamed, update this line and `APP_URL` together.
+
+### Windows path casing fix
+
+The project includes `public/server-config.php`, loaded from `public/index.php`, to normalize Apache `SCRIPT_NAME` casing on Windows. Without this, mod_rewrite can produce mismatched paths (`/Cyra-Connect/public` vs `/cyra-connect/public`) and Laravel will return 404 for all routes except the homepage.
+
+### Recommended local URLs
+
+| Page | URL |
+|------|-----|
+| Home | http://localhost/cyra-connect/public/ |
+| Login | http://localhost/cyra-connect/public/login |
+| Register | http://localhost/cyra-connect/public/register |
+
+### Production alternative
+
+For production-like local development, point the Apache/Nginx virtual host document root directly to the `public/` directory instead of using a subdirectory. This avoids rewrite-base issues entirely.

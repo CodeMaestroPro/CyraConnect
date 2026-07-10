@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Enums;
+
+enum OrganizationMemberRole: string
+{
+    case Owner = 'owner';
+    case Admin = 'admin';
+    case Member = 'member';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Owner => 'Owner',
+            self::Admin => 'Admin',
+            self::Member => 'Member',
+        };
+    }
+
+    public function canManageMembers(): bool
+    {
+        return in_array($this, [self::Owner, self::Admin], true);
+    }
+
+    public function canEditOrganization(): bool
+    {
+        return in_array($this, [self::Owner, self::Admin], true);
+    }
+
+    public function canDeleteOrganization(): bool
+    {
+        return $this === self::Owner;
+    }
+}

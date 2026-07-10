@@ -1,6 +1,6 @@
 # 02 — System Architecture
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026
 
@@ -8,7 +8,7 @@
 
 ## 1. Architecture Overview
 
-Cyra Nexus follows a **modular monolith** architecture with clear domain boundaries, designed for future microservices extraction if needed.
+CyraConnect follows a **modular monolith** architecture with clear domain boundaries, designed for future microservices extraction if needed.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐

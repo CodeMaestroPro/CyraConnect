@@ -16,9 +16,9 @@
 
         <x-ui.card title="Recent Activity">
             @forelse ($user->activityLogs->take(10) as $log)
-                <div class="border-b border-slate-100 py-2 text-sm last:border-0 dark:border-slate-700">
-                    <span class="font-medium">{{ $log->action }}</span>
-                    <span class="text-slate-500">{{ $log->created_at->diffForHumans() }}</span>
+                <div class="flex flex-col gap-1 py-2 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-3 border-b border-slate-100 last:border-0 dark:border-slate-700">
+                    <span class="font-medium break-words">{{ $log->action }}</span>
+                    <span class="shrink-0 text-slate-500">{{ $log->created_at->diffForHumans() }}</span>
                 </div>
             @empty
                 <p class="text-sm text-slate-500">No activity recorded.</p>

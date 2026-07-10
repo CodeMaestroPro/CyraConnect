@@ -1,7 +1,7 @@
-<x-layouts.guest title="Log in — Cyra Nexus">
+<x-layouts.guest title="Log in — CyraConnect">
     <div class="mx-auto max-w-md">
     <x-ui.card title="Welcome back">
-        <p class="mb-6 text-sm text-slate-500">Sign in to your Cyra Nexus account</p>
+        <p class="mb-6 text-sm text-slate-500">Sign in to your CyraConnect account</p>
 
         @if (session('success'))
             <x-ui.alert type="success" class="mb-4">{{ session('success') }}</x-ui.alert>
@@ -11,8 +11,8 @@
             @csrf
             <x-ui.input label="Email" name="email" type="email" required autofocus />
             <x-ui.input label="Password" name="password" type="password" required />
-            <div class="flex items-center justify-between">
-                <label class="flex items-center gap-2 text-sm text-slate-600">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <label class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                     <input type="checkbox" name="remember" class="rounded border-slate-300 text-cyra-600 focus:ring-cyra-500">
                     Remember me
                 </label>

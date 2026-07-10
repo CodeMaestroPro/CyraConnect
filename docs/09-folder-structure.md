@@ -1,6 +1,6 @@
 # 09 — Folder Structure
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026
 
@@ -9,7 +9,7 @@
 ## Project Structure
 
 ```
-Cyra-Nexus/
+cyra-connect/
 ├── app/
 │   ├── Domains/                    # Domain-driven modules
 │   │   ├── Auth/                   # Actions, DTOs, Models, Repositories, Services

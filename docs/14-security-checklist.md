@@ -1,6 +1,6 @@
 # 14 — Security Checklist
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026
 
@@ -174,4 +174,4 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 5. **Notify** — Inform affected users if data breach
 6. **Review** — Post-incident analysis, update checklist
 
-**Contact:** security@cyranexus.com
+**Contact:** security@cyraconnect.com

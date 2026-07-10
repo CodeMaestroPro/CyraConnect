@@ -6,6 +6,7 @@ $nav = fn($route, $label) => '<a href="'.route($route).'" class="flex items-cent
     <x-slot:sidebar>
         <a href="{{ route('admin.dashboard') }}" class="flex items-center rounded-lg bg-cyra-50 px-3 py-2 text-sm font-medium text-cyra-700 dark:bg-cyra-900/30 dark:text-cyra-300">Dashboard</a>
         <a href="{{ route('admin.users.index') }}" class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Users</a>
+        <a href="{{ route('admin.organizations.index') }}" class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Organizations</a>
     </x-slot:sidebar>
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

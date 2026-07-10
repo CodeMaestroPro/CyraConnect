@@ -91,6 +91,6 @@ class OnboardingController extends Controller
         $this->activityLog->log('user.profile_completed', $user, $user);
 
         return redirect()->route($user->dashboardRoute())
-            ->with('success', 'Welcome to Cyra Nexus!');
+            ->with('success', 'Welcome to CyraConnect!');
     }
 }

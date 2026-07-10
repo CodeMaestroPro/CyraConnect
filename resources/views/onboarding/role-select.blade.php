@@ -1,7 +1,7 @@
-<x-layouts.guest title="Choose Your Role — Cyra Nexus">
+<x-layouts.guest title="Choose Your Role — CyraConnect">
     <div class="w-full max-w-2xl">
         <div class="mb-8 text-center">
-            <h1 class="text-2xl font-bold text-slate-900 dark:text-white">How will you use Cyra Nexus?</h1>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white">How will you use CyraConnect?</h1>
             <p class="mt-2 text-slate-500">Select your primary role to personalize your experience</p>
         </div>
 

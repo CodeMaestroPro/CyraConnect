@@ -1,6 +1,6 @@
 # 16 — Future AI Integration Plan
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026
 
@@ -8,7 +8,7 @@
 
 ## 1. AI Vision
 
-Cyra Nexus AI will serve as Africa's **innovation intelligence layer** — helping users discover opportunities, make informed decisions, and accelerate their growth through personalized, context-aware recommendations.
+CyraConnect AI will serve as Africa's **innovation intelligence layer** — helping users discover opportunities, make informed decisions, and accelerate their growth through personalized, context-aware recommendations.
 
 ---
 
@@ -33,7 +33,7 @@ Cyra Nexus AI will serve as Africa's **innovation intelligence layer** — helpi
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    Cyra Nexus App                        │
+│                    CyraConnect App                        │
 ├─────────────────────────────────────────────────────────┤
 │  AI Controller → AI Service Layer → AI Provider Adapter │
 │                        │                                 │

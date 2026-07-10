@@ -1,4 +1,4 @@
-<x-layouts.guest title="Complete Profile — Cyra Nexus">
+<x-layouts.guest title="Complete Profile — CyraConnect">
     <x-ui.card title="Complete your profile">
         <p class="mb-6 text-sm text-slate-500">Just a few more details to get you started.</p>
 

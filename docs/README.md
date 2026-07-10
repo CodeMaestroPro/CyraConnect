@@ -1,8 +1,8 @@
-# Cyra Nexus — Platform Documentation
+# CyraConnect — Platform Documentation
 
 > **Africa's Intelligent Innovation, Startup, Investment, Talent & Tech Hub Ecosystem**
 
-This documentation suite defines the complete enterprise architecture, requirements, and development plan for Cyra Nexus. **No code modules should be built until this documentation is reviewed and approved.**
+This documentation suite defines the complete enterprise architecture, requirements, and development plan for CyraConnect. **No code modules should be built until this documentation is reviewed and approved.**
 
 ---
 

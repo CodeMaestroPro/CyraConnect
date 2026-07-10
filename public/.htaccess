@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Required when Laravel runs from a subdirectory (e.g. XAMPP: /cyra-connect/public)
+    RewriteBase /cyra-connect/public/
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

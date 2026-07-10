@@ -117,6 +117,38 @@ class User extends Authenticatable implements MustVerifyEmail
             ->withTimestamps();
     }
 
+    public function studentPortfolioItems(): HasMany
+    {
+        return $this->hasMany(StudentPortfolioItem::class)->orderBy('sort_order');
+    }
+
+    public function studentCertificates(): HasMany
+    {
+        return $this->hasMany(StudentCertificate::class)->latest('issued_at');
+    }
+
+    public function studentApplications(): HasMany
+    {
+        return $this->hasMany(StudentApplication::class)->latest('applied_at');
+    }
+
+    public function bookmarks(): HasMany
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
+    public function organizationMemberships(): HasMany
+    {
+        return $this->hasMany(OrganizationMember::class);
+    }
+
+    public function organizations(): BelongsToMany
+    {
+        return $this->belongsToMany(Organization::class, 'organization_members')
+            ->withPivot(['role', 'title', 'is_public', 'joined_at'])
+            ->withTimestamps();
+    }
+
     public function roleProfile(): ?Model
     {
         $role = $this->primaryRole()?->name;
@@ -192,6 +224,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasAnyRole([
             UserRole::Admin,
             UserRole::SuperAdmin,
+        ]);
+    }
+
+    public function canAccessAdmin(): bool
+    {
+        return $this->hasAnyRole([
+            UserRole::Admin,
+            UserRole::SuperAdmin,
+            UserRole::Moderator,
+            UserRole::Support,
         ]);
     }
 

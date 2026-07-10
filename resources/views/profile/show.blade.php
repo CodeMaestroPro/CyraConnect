@@ -7,7 +7,7 @@
     <div class="grid gap-6 lg:grid-cols-3">
         <div class="lg:col-span-2 space-y-6">
             <x-ui.card>
-                <div class="flex items-start gap-4">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
                     @if ($user->avatar)
                         <img src="{{ Storage::url($user->avatar) }}" alt="" class="h-20 w-20 rounded-full object-cover">
                     @else

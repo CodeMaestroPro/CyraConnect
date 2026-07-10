@@ -73,7 +73,33 @@ class LoginController extends Controller
             return redirect()->route('onboarding.profile');
         }
 
-        return redirect()->intended(route($user->dashboardRoute()));
+        return redirect()->to($this->postLoginRedirect($request, $user));
+    }
+
+    private function postLoginRedirect(LoginRequest $request, \App\Models\User $user): string
+    {
+        $default = route($user->dashboardRoute());
+        $intended = $request->session()->pull('url.intended');
+
+        if (! $intended) {
+            return $default;
+        }
+
+        $path = parse_url($intended, PHP_URL_PATH) ?? '';
+
+        if (str_contains($path, '/admin') && ! $user->canAccessAdmin()) {
+            return $default;
+        }
+
+        if (str_contains($path, '/startup') && ! $user->hasRole(\App\Enums\UserRole::StartupFounder)) {
+            return $default;
+        }
+
+        if (str_contains($path, '/student') && ! $user->hasRole(\App\Enums\UserRole::Student)) {
+            return $default;
+        }
+
+        return $intended;
     }
 
     public function destroy(): RedirectResponse

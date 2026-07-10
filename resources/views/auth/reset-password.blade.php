@@ -1,4 +1,4 @@
-<x-layouts.guest title="Reset Password — Cyra Nexus">
+<x-layouts.guest title="Reset Password — CyraConnect">
     <x-ui.card title="Set new password">
         <form method="POST" action="{{ route('password.update') }}" class="space-y-4">
             @csrf

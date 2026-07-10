@@ -1,6 +1,6 @@
 # 01 — Software Requirement Specification (SRS)
 
-**Project:** Cyra Nexus  
+**Project:** CyraConnect  
 **Version:** 1.0.0  
 **Date:** July 10, 2026  
 **Status:** Draft for Review
@@ -10,10 +10,10 @@
 ## 1. Introduction
 
 ### 1.1 Purpose
-This document defines the functional and non-functional requirements for Cyra Nexus — Africa's intelligent innovation ecosystem platform connecting students, startups, investors, tech hubs, corporates, governments, and talent across the continent.
+This document defines the functional and non-functional requirements for CyraConnect — Africa's intelligent innovation ecosystem platform connecting students, startups, investors, tech hubs, corporates, governments, and talent across the continent.
 
 ### 1.2 Scope
-Cyra Nexus will serve as Africa's **innovation operating system**, combining capabilities of LinkedIn, AngelList, Crunchbase, Product Hunt, Coursera, and Upwork into a unified enterprise platform.
+CyraConnect will serve as Africa's **innovation operating system**, combining capabilities of LinkedIn, AngelList, Crunchbase, Product Hunt, Coursera, and Upwork into a unified enterprise platform.
 
 ### 1.3 Definitions
 
@@ -36,7 +36,7 @@ Cyra Nexus will serve as Africa's **innovation operating system**, combining cap
 ## 2. Overall Description
 
 ### 2.1 Product Perspective
-Cyra Nexus is a standalone web platform with:
+CyraConnect is a standalone web platform with:
 - Server-rendered Blade views (primary)
 - REST API (mobile & third-party integrations)
 - Real-time capabilities (WebSocket-ready via Laravel Reverb)
