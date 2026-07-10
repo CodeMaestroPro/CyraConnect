@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\Enums\UserRole;
 use App\Models\Role;
 use App\Services\ActivityLogService;
+use App\Services\ProfileService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class OnboardingController extends Controller
 {
-    public function __construct(private ActivityLogService $activityLog) {}
+    public function __construct(
+        private ActivityLogService $activityLog,
+        private ProfileService $profiles,
+    ) {}
 
     public function roleSelect(): View|RedirectResponse
     {
@@ -44,6 +48,7 @@ class OnboardingController extends Controller
         }
 
         $user->assignRole($request->role, primary: true);
+        $this->profiles->ensureRoleProfile($user->fresh());
 
         $this->activityLog->log('user.role_assigned', $user, $user, [
             'role' => $request->role,

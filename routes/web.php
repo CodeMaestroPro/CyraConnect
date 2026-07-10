@@ -9,7 +9,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OnboardingController;
-use App\Http\Controllers\Portal\CorporateDashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleProfileController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\Portal\HubDashboardController;
 use App\Http\Controllers\Portal\InvestorDashboardController;
 use App\Http\Controllers\Portal\StartupDashboardController;
@@ -46,6 +49,25 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
     Route::post('/onboarding/profile', [OnboardingController::class, 'storeProfile'])->name('onboarding.profile.store');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class, 'show'])->name('show');
+        Route::get('/edit', [ProfileController::class, 'edit'])->name('edit');
+        Route::put('/', [ProfileController::class, 'update'])->name('update');
+        Route::get('/role', [RoleProfileController::class, 'edit'])->name('role.edit');
+        Route::put('/role', [RoleProfileController::class, 'update'])->name('role.update');
+    });
+
+    Route::prefix('settings')->name('settings.')->group(function () {
+        Route::get('/account', [SettingsController::class, 'account'])->name('account');
+        Route::get('/password', [SettingsController::class, 'password'])->name('password');
+        Route::put('/password', [SettingsController::class, 'updatePassword'])->name('password.update');
+    });
+
+    Route::post('/skills', [SkillController::class, 'store'])->name('skills.store');
+    Route::delete('/skills/{skill}', [SkillController::class, 'destroy'])->name('skills.destroy');
+
+    Route::get('/users/{user}', [ProfileController::class, 'publicShow'])->name('users.show');
 
     Route::prefix('student')->middleware('role:student')->name('student.')->group(function () {
         Route::get('/dashboard', [StudentDashboardController::class, 'index'])->name('dashboard');

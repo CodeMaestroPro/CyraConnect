@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -26,6 +27,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'avatar',
+        'bio',
+        'website',
+        'linkedin_url',
+        'twitter_url',
+        'profile_visibility',
         'phone',
         'timezone',
         'locale',
@@ -82,6 +88,51 @@ class User extends Authenticatable implements MustVerifyEmail
     public function activityLogs(): HasMany
     {
         return $this->hasMany(ActivityLog::class);
+    }
+
+    public function studentProfile(): HasOne
+    {
+        return $this->hasOne(StudentProfile::class);
+    }
+
+    public function investorProfile(): HasOne
+    {
+        return $this->hasOne(InvestorProfile::class);
+    }
+
+    public function mentorProfile(): HasOne
+    {
+        return $this->hasOne(MentorProfile::class);
+    }
+
+    public function freelancerProfile(): HasOne
+    {
+        return $this->hasOne(FreelancerProfile::class);
+    }
+
+    public function skills(): BelongsToMany
+    {
+        return $this->belongsToMany(Skill::class, 'user_skills')
+            ->withPivot('proficiency', 'years')
+            ->withTimestamps();
+    }
+
+    public function roleProfile(): ?Model
+    {
+        $role = $this->primaryRole()?->name;
+
+        return match ($role) {
+            UserRole::Student->value => $this->studentProfile,
+            UserRole::Investor->value => $this->investorProfile,
+            UserRole::Mentor->value => $this->mentorProfile,
+            UserRole::Freelancer->value => $this->freelancerProfile,
+            default => null,
+        };
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
     }
 
     public function primaryRole(): ?Role

@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Enums;
+
+enum ProfileVisibility: string
+{
+    case Public = 'public';
+    case Members = 'members';
+    case Private = 'private';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Public => 'Public',
+            self::Members => 'Members Only',
+            self::Private => 'Private',
+        };
+    }
+}
